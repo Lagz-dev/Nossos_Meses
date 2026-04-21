@@ -793,6 +793,27 @@
             font-size: 1.3rem;
         }
 
+        .modal-surpresa-btn {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--rose-deep), #b03060);
+            color: white;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(212, 92, 122, 0.25);
+        }
+
+        .modal-surpresa-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 35px rgba(212, 92, 122, 0.4);
+        }
+
         .modal-close {
             margin-top: 32px;
             display: inline-block;
@@ -1240,8 +1261,11 @@
                 <strong style="color:var(--rose-deep)">Eu te amo ❤️</strong>
             </p>
 
-            <button class="modal-close" id="modal-close">Fechar ✦</button>
+            <a href="./vídeopage.html" class="modal-surpresa-btn">
+                🎬 Ver surpresa final
+            </a>
         </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 

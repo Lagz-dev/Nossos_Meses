@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo, gatona ❤️</title>
+    <link rel="icon" href="./img/imagem_2026-04-20_225210722.ico" type="image/ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --rose: #f7c5c5;
+            --rose-mid: #f0a0a0;
+            --rose-deep: #d45c7a;
+            --blush: #fde8e8;
+            --cream: #fff7f7;
+            --text-dark: #3a1a22;
+            --text-mid: #7a4455;
+        }
+
+        /* ===== BASE ===== */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #fff0f3, #fde8e8, #ffd6e0, #ffe4ec);
+            background-size: 400% 400%;
+            animation: bg 10s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        @keyframes bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        /* ===== TÍTULO ===== */
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            color: var(--rose-deep);
+            font-style: italic;
+        }
+
+        /* ===== SUB ===== */
+        p {
+            color: var(--text-mid);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        /* ===== VIDEO ===== */
+        .video-box {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: 0.4s;
+        }
+
+        .video-box:hover {
+            transform: translateY(-6px);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        /* ===== BOTÃO ===== */
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--rose-deep), #b03060);
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(212, 92, 122, 0.35);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(212, 92, 122, 0.45);
+        }
+
+        /* ===== CORAÇÕES FLUTUANTES ===== */
+        .heart {
+            position: absolute;
+            color: rgba(212, 92, 122, 0.25);
+            animation: float 6s infinite ease-in-out;
+            font-size: 18px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .h1 {
+            top: 10%;
+            left: 10%;
+        }
+
+        .h2 {
+            top: 20%;
+            right: 15%;
+        }
+
+        .h3 {
+            bottom: 15%;
+            left: 20%;
+        }
+
+        .h4 {
+            bottom: 10%;
+            right: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CORAÇÕES DECORATIVOS -->
+    <div class="heart h1">❤</div>
+    <div class="heart h2">❤</div>
+    <div class="heart h3">❤</div>
+    <div class="heart h4">❤</div>
+
+    <div class="container">
+
+        <h1>Oi <span>Joyce</span> ❤️</h1>
+
+        <p>
+            Esse vídeo é só uma pequena parte de tudo que eu sinto por você.<br>
+            Dez meses não são só números… são momentos que eu nunca vou esquecer.
+        </p>
+
+        <div class="video-box">
+            <video controls>
+                <source src="./img/Meu vídeo.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo.
+            </video>
+        </div>
+
+        <a class="btn" href="index.html">Voltar para o começo 💌</a>
+
+    </div>
+
+</body>
+
+</html>
