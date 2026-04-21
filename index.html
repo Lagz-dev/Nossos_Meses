@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz 10 Meses, Joyce ❤️</title>
+
+    <!-- Google Fonts: Cormorant Garamond (display romântica) + Lato (corpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- AOS – Animate On Scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+    <style>
+        /* ========================================================
+       VARIÁVEIS E RESET
+    ======================================================== */
+        :root {
+            --rose: #f7c5c5;
+            --rose-mid: #f0a0a0;
+            --rose-deep: #d45c7a;
+            --blush: #fde8e8;
+            --cream: #fff7f7;
+            --white: #ffffff;
+            --text-dark: #3a1a22;
+            --text-mid: #7a4455;
+            --text-light: #b07080;
+            --gold: #e8c9a0;
+            --shadow: rgba(212, 92, 122, 0.18);
+            --radius: 18px;
+            --transition: 0.4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* ========================================================
+       CANVAS DE PARTÍCULAS (fundo)
+    ======================================================== */
+        #particles-canvas {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ========================================================
+       NAVEGAÇÃO
+    ======================================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            background: rgba(255, 247, 247, 0.72);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(240, 160, 160, 0.2);
+            transition: var(--transition);
+        }
+
+        nav a {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-mid);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--rose-deep);
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--rose-deep);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ========================================================
+       HERO SECTION
+    ======================================================== */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 24px 60px;
+            overflow: hidden;
+            z-index: 1;
+
+            /* gradiente animado */
+            background: linear-gradient(135deg, #fff0f3, #fde8e8, #ffd6e0, #ffe4ec);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ornamento decorativo no hero */
+        .hero-ornament {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(240, 160, 160, 0.25), transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero-ornament.o1 {
+            width: 420px;
+            height: 420px;
+            top: -80px;
+            right: -80px;
+        }
+
+        .hero-ornament.o2 {
+            width: 280px;
+            height: 280px;
+            bottom: 60px;
+            left: -60px;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--rose-deep);
+            border: 1px solid var(--rose-mid);
+            border-radius: 40px;
+            padding: 6px 20px;
+            margin-bottom: 28px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(6px);
+            animation: fadeDown 1s ease both;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 600;
+            line-height: 1.05;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            animation: fadeDown 1.1s ease both;
+        }
+
+        .hero-title .accent {
+            color: var(--rose-deep);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            color: var(--text-mid);
+            margin-bottom: 40px;
+            animation: fadeDown 1.2s ease both;
+        }
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* botão principal */
+        .btn-hero {
+            display: inline-block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--rose-deep), #c0435f);
+            padding: 16px 44px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(212, 92, 122, 0.38);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeDown 1.3s ease both;
+        }
+
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-100%) skewX(-20deg);
+            transition: transform 0.5s ease;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 36px rgba(212, 92, 122, 0.45);
+        }
+
+        .btn-hero:hover::before {
+            transform: translateX(150%) skewX(-20deg);
+        }
+
+        /* scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-hint svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--rose-deep);
+            fill: none;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(6px);
+            }
+        }
+
+        /* ========================================================
+       SEÇÕES GERAIS
+    ======================================================== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 24px;
+        }
+
+        .section-label {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--rose-deep);
+            display: block;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-weight: 600;
+            text-align: center;
+            color: var(--text-dark);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .section-title em {
+            color: var(--rose-deep);
+            font-style: italic;
+        }
+
+        .section-line {
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rose-deep), transparent);
+            margin: 0 auto 60px;
+        }
+
+        /* ========================================================
+       NOSSA HISTÓRIA
+    ======================================================== */
+        #historia {
+            background: var(--white);
+        }
+
+        .historia-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .historia-quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+            color: var(--rose-deep);
+            line-height: 1.4;
+            margin-bottom: 36px;
+        }
+
+        .historia-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-mid);
+        }
+
+        .historia-icons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 48px;
+            font-size: 1.8rem;
+        }
+
+        /* ========================================================
+       GALERIA
+    ======================================================== */
+        #galeria {
+            background: linear-gradient(180deg, var(--blush) 0%, var(--cream) 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/5;
+            background: var(--rose);
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 40px rgba(212, 92, 122, 0.28);
+        }
+
+        /* placeholder para fotos (troque as cores e emojis pelo <img src="..."> real) */
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--rose), var(--rose-mid));
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-card:hover .gallery-placeholder {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(58, 26, 34, 0.75) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-card:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .gallery-caption p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        /* ========================================================
+       TIMELINE
+    ======================================================== */
+        #timeline {
+            background: var(--white);
+        }
+
+        .timeline-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* linha da timeline */
+        .timeline-wrap::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg,
+                    transparent,
+                    var(--rose-mid),
+                    var(--rose-deep),
+                    var(--rose-mid),
+                    transparent);
+        }
+
+        .tl-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 56px;
+            position: relative;
+        }
+
+        .tl-card {
+            flex: 1;
+            background: var(--blush);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            box-shadow: 0 4px 16px var(--shadow);
+            transition: transform var(--transition), box-shadow var(--transition);
+            max-width: 600px;
+        }
+
+        .tl-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(212, 92, 122, 0.22);
+        }
+
+        .tl-date {
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--rose-deep);
+            margin-bottom: 6px;
+        }
+
+        .tl-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .tl-desc {
+            font-size: 0.93rem;
+            line-height: 1.7;
+            color: var(--text-mid);
+        }
+
+        /* bolinha da timeline */
+        .tl-dot {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--rose-deep), #c0435f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 0 0 6px rgba(212, 92, 122, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========================================================
+       CONTADOR
+    ======================================================== */
+        #contador {
+            background: linear-gradient(135deg, #fde8e8, #ffd6e0);
+            text-align: center;
+        }
+
+        .counter-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        .counter-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            min-width: 150px;
+            box-shadow: 0 6px 24px rgba(212, 92, 122, 0.14);
+            transition: transform var(--transition);
+        }
+
+        .counter-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .counter-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.4rem;
+            font-weight: 700;
+            color: var(--rose-deep);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .counter-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .counter-tagline {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: var(--text-mid);
+            margin-top: 16px;
+        }
+
+        /* ========================================================
+       CARTA
+    ======================================================== */
+        #carta {
+            background: var(--white);
+        }
+
+        .carta-wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 56px 64px;
+            box-shadow: 0 8px 40px rgba(212, 92, 122, 0.13);
+            position: relative;
+            border: 1px solid rgba(240, 160, 160, 0.3);
+        }
+
+        /* decoração no canto da carta */
+        .carta-wrap::before,
+        .carta-wrap::after {
+            content: '❤';
+            position: absolute;
+            font-size: 1.6rem;
+            color: rgba(212, 92, 122, 0.18);
+        }
+
+        .carta-wrap::before {
+            top: 20px;
+            left: 24px;
+        }
+
+        .carta-wrap::after {
+            bottom: 20px;
+            right: 24px;
+        }
+
+        .carta-dear {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--rose-deep);
+            margin-bottom: 24px;
+        }
+
+        .carta-body {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text-mid);
+        }
+
+        .carta-body p {
+            margin-bottom: 18px;
+        }
+
+        .carta-sign {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--rose-deep);
+            text-align: right;
+            margin-top: 32px;
+        }
+
+        /* ========================================================
+       SURPRESA
+    ======================================================== */
+        #surpresa {
+            background: linear-gradient(135deg, #fde8e8, var(--cream));
+            text-align: center;
+        }
+
+        .btn-surpresa {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.88rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--rose-deep), #b03060);
+            padding: 18px 52px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212, 92, 122, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-surpresa:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(212, 92, 122, 0.48);
+        }
+
+        .btn-surpresa span {
+            font-size: 1.4rem;
+        }
+
+        /* ========================================================
+       MODAL
+    ======================================================== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(58, 26, 34, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-box {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 52px 48px;
+            max-width: 560px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 24px 60px rgba(58, 26, 34, 0.25);
+            transform: scale(0.85) translateY(20px);
+            transition: transform 0.4s cubic-bezier(.34, 1.56, .64, 1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-heart {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 20px;
+            animation: heartbeat 1.2s ease infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1.2);
+            }
+
+            60% {
+                transform: scale(1.05);
+            }
+        }
+
+        .modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .modal-text {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--text-mid);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+        }
+
+        .modal-close {
+            margin-top: 32px;
+            display: inline-block;
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--rose-deep);
+            border: 1px solid var(--rose-mid);
+            padding: 10px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            background: transparent;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--rose-deep);
+            color: #fff;
+        }
+
+        /* ========================================================
+       FOOTER
+    ======================================================== */
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            background: var(--text-dark);
+            color: var(--rose);
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer small {
+            display: block;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* ========================================================
+       RESPONSIVIDADE
+    ======================================================== */
+        @media (max-width: 700px) {
+            nav {
+                gap: 18px;
+                padding: 14px 20px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 0.68rem;
+            }
+
+            .tl-item,
+            .tl-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-wrap::before {
+                left: 22px;
+            }
+
+            .tl-dot {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .carta-wrap {
+                padding: 36px 28px;
+            }
+
+            .counter-card {
+                min-width: 110px;
+                padding: 24px 20px;
+            }
+        }
+
+        /* =========================================
+   SLIDESHOW DE FOTOS
+========================================= */
+
+        .photo-slider {
+            width: 100%;
+            max-width: 350px;
+            height: 500px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .photo-slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        .photo-slider img.active {
+            opacity: 1;
+        }
+
+
+        .photo-slider img.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======================================================
+       CANVAS DAS PARTÍCULAS (corações flutuantes)
+  ====================================================== -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ======================================================
+       NAVEGAÇÃO
+  ====================================================== -->
+    <nav>
+        <a href="#historia">História</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contador">Contador</a>
+    </nav>
+
+    <!-- ======================================================
+       1. HERO
+  ====================================================== -->
+    <section id="hero">
+        <div class="hero-ornament o1"></div>
+        <div class="hero-ornament o2"></div>
+
+        <span class="hero-badge">✦ Celebrando nosso amor ✦</span>
+
+        <h1 class="hero-title">
+            Feliz <span class="accent">10 Meses</span>,<br>Joyce ❤️
+        </h1>
+
+        <p class="hero-sub">Dez meses de sorrisos, cumplicidade e amor infinito</p>
+
+        <div class="scroll-hint">
+            <svg viewBox="0 0 24 24" stroke-width="1.5">
+                <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+            Scroll
+        </div>
+    </section>
+
+    <!-- ======================================================
+       2. NOSSA HISTÓRIA
+  ====================================================== -->
+    <section id="historia">
+        <span class="section-label">Nosso começo</span>
+        <h2 class="section-title">Nossa <em>História</em></h2>
+        <span class="section-line"></span>
+
+        <div class="historia-inner">
+            <p class="historia-quote" data-aos="fade-up">
+                "Em você encontrei um lar que não precisa de endereço."
+            </p>
+            <p class="historia-text" data-aos="fade-up" data-aos-delay="100">
+                Dez meses podem parecer pouco para o mundo, mas para mim representam
+                centenas de manhãs com você ao meu lado, risadas que me aquecem a alma,
+                abraços que me lembram que tudo vai ficar bem. Cada dia ao seu lado é
+                uma nova descoberta. Do jeito que você ri, do brilho dos seus olhos
+                quando você está feliz, da forma carinhosa como você cuida de tudo e
+                de todos.
+            </p>
+            <p class="historia-text" data-aos="fade-up" data-aos-delay="200">
+                Joyce, você entrou na minha vida e pintou cada canto dela com cores
+                que eu nem sabia que existiam. Obrigado por cada momento, por cada
+                abraço apertado, por cada olhar de cumplicidade. Você é a melhor
+                parte dos meus dias sem graça na escola.
+            </p>
+
+            <div class="historia-icons" data-aos="zoom-in" data-aos-delay="300">
+                <span>🌹</span><span>💫</span><span>💕</span><span>✨</span><span>🌹</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================
+       3. GALERIA
+  ====================================================== -->
+    <section id="galeria">
+        <span class="section-label">Memórias</span>
+        <h2 class="section-title">Nossa pequena <em>Galeria</em></h2>
+        <span class="section-line"></span>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="0">
+                <img src="./img/foto11.jpeg" alt="Nosso primeiro encontro"
+                    style="width:100%;height:100%;object-fit:cover;">
+                <div class="gallery-caption">
+                    <p>Momento aleatório com a Ana</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="80">
+                <img src="./img/foto22.jpeg" alt="Pôr do sol especial" style="width:100%;height:100%;object-fit:cover;">
+                <div class="gallery-caption">
+                    <p>Foto sua toda besta na arquibancada</p>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-aos="fade-up" data-aos-delay="160">
+                <img src="./img/foto33.jpeg" alt="Nossa celebração" style="width:100%;height:100%;object-fit:cover;">
+                <div class="gallery-caption">
+                    <p>Nossa primeira foto</p>
+                </div>
+
+            </div>
+            <p style="font-size: 10px; color:#d45c7a"> Bem que você poderia tirar mais fotos da gente junto...</p>
+        </div>
+
+
+
+
+
+        </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================
+       4. TIMELINE
+  ====================================================== -->
+    <section id="timeline">
+        <span class="section-label">Nossa jornada</span>
+        <h2 class="section-title">Linha do <em>Tempo</em></h2>
+        <span class="section-line"></span>
+
+        <div class="timeline-wrap">
+
+            <div class="tl-item" data-aos="fade-right">
+                <div class="tl-card">
+                    <p class="tl-date">O começo de tudo</p>
+                    <h3 class="tl-title">Quando nos conhecemos</h3>
+                    <p class="tl-desc">Foi um encontro bem vergonhoso naquele corredor, mas que mudou minha vida para
+                        sempre.</p>
+                </div>
+                <div class="tl-dot">✨</div>
+                <div style="flex:1"></div>
+            </div>
+
+            <div class="tl-item" data-aos="fade-left">
+                <div style="flex:1"></div>
+                <div class="tl-dot">🌹</div>
+                <div class="tl-card">
+                    <p class="tl-date">O início</p>
+                    <h3 class="tl-title">Quando conversavamos</h3>
+                    <p class="tl-desc">A primeira vez que ficamos juntos, eu pensei que iria ser apenas uma ficada, que
+                        não duraria muito tempo. Mas percebi que você era alguém mais especial do que aparentava.</p>
+                </div>
+            </div>
+
+            <div class="tl-item" data-aos="fade-right">
+                <div class="tl-card">
+                    <p class="tl-date">O pedido</p>
+                    <h3 class="tl-title">Quando você disse "sim"</h3>
+                    <p class="tl-desc">Não achava que iria precisar de uma tarde inteira para escolher uma rosa... Mas
+                        quando você aceitou minha humilde proposta, tive certeza que foi a melhor rosa que eu já escolhi
+                    </p>
+                </div>
+                <div class="tl-dot">💕</div>
+                <div style="flex:1"></div>
+            </div>
+
+            <div class="tl-item" data-aos="fade-left">
+                <div style="flex:1"></div>
+                <div class="tl-dot">🌟</div>
+                <div class="tl-card">
+                    <p class="tl-date">Momentos marcantes</p>
+                    <h3 class="tl-title">Lembranças</h3>
+                    <p class="tl-desc">Não saímos muito, mas tive diverso momentos inesquecíveis ao seu lado. Nos quais
+                        pude descobrir que mb nn conseguia engolir um comprimido, mas agora consegue engolir dois</p>
+                </div>
+            </div>
+
+            <div class="tl-item" data-aos="fade-right">
+                <div class="tl-card">
+                    <p class="tl-date">Hoje</p>
+                    <h3 class="tl-title">10 Meses Juntos ❤️</h3>
+                    <p class="tl-desc">Dez meses de cumplicidade, amor e crescimento. E esse é apenas o começo da nossa
+                        história que ainda vai crescer mais</p>
+                </div>
+                <div class="tl-dot">❤️</div>
+                <div style="flex:1"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================
+       5. CONTADOR
+  ====================================================== -->
+    <section id="contador">
+        <span class="section-label">Nosso tempo</span>
+        <h2 class="section-title">Contando cada <em>Segundo</em></h2>
+        <span class="section-line"></span>
+
+        <div class="counter-grid" data-aos="zoom-in">
+            <div class="counter-card">
+                <div class="counter-number" id="cnt-meses">10</div>
+                <div class="counter-label">Meses</div>
+            </div>
+            <div class="counter-card">
+                <div class="counter-number" id="cnt-dias">304</div>
+                <div class="counter-label">Dias</div>
+            </div>
+            <div class="counter-card">
+                <div class="counter-number" id="cnt-horas">7296</div>
+                <div class="counter-label">Horas</div>
+            </div>
+            <div class="counter-card">
+                <div class="counter-number" id="cnt-minutos">437760</div>
+                <div class="counter-label">Minutos</div>
+            </div>
+        </div>
+
+        <p class="counter-tagline" data-aos="fade-up" data-aos-delay="200">
+            "Cada segundo ao seu lado vale a pena." 💖
+        </p>
+    </section>
+
+    <!-- ======================================================
+       6. CARTA
+  ====================================================== -->
+    <section id="carta">
+        <span class="section-label">Do fundo do coração</span>
+        <h2 class="section-title">Uma <em>Carta</em> para você</h2>
+        <span class="section-line"></span>
+
+        <div class="carta-wrap" data-aos="fade-up">
+            <p class="carta-dear">Querida Joyce,</p>
+
+            <div class="carta-body">
+                <p>
+                    Quando penso em você, um sorriso inevitável toma conta do meu rosto.
+                    São dez meses de uma história que ainda está sendo escrita, página por
+                    página, abraço por abraço, olhar por olhar.
+                </p>
+                <p>
+                    Você me ensinou o que é amar de verdade com leveza, com presença,
+                    com aquele cuidado genuíno que só você sabe dar. Do jeito como você
+                    ri até como você olha para mim quando achamos que ninguém está vendo...
+                    tudo em você é mágico.
+                </p>
+                <p>
+                    Obrigado por cada vez que você me escolheu, por cada abraço nas horas
+                    difíceis, por cada gargalhada que iluminou meus dias. Você faz a vida
+                    mais bonita simplesmente por existir.
+                </p>
+                <p>
+                    Dez meses são apenas o começo. Mal posso esperar por tudo que ainda
+                    vamos viver juntos, cada aventura, cada conquista, cada momento simples
+                    que com você se transforma em algo extraordinário.
+                </p>
+                <p>Eu quero muito, um dia, poder ser mais do que apenas seu amigo da escola.</p>
+            </div>
+
+            <p class="carta-sign">Com todo o meu amor ❤️</p>
+        </div>
+    </section>
+
+    <!-- ======================================================
+     7. SURPRESA
+====================================================== -->
+    <section id="surpresa">
+
+        <h2 class="section-title">Você /<em> Amor da minha vida</em>:</h2>
+        <span class="section-line"></span>
+
+        <!-- SLIDESHOW DE FOTOS -->
+        <div class="photo-slider" data-aos="zoom-in">
+
+            <img src="./img/foto1.jpeg" class="slide active">
+            <img src="./img/foto2.jpeg" class="slide">
+            <img src="./img/foto3.jpeg" class="slide">
+            <img src="./img/foto4.jpeg" class="slide">
+            <img src="./img/foto5.jpeg" class="slide">
+            <img src="./img/foto6.jpeg" class="slide">
+            <img src="./img/foto7.jpeg" class="slide">
+            <img src="./img/foto8.jpeg" class="slide">
+            <img src="./img/foto9.jpeg" class="slide">
+            <img src="./img/foto10.jpeg" class="slide">
+            <img src="./img/foto.11.jpeg" class="slide"> 
+            <img src="./img/foto12.jpeg" class="slide">
+            <img src="./img/foto13.jpeg" class="slide">
+            <img src="./img/foto14.jpeg" class="slide">
+            <img src="./img/foto15.jpeg" class="slide">
+            <img src="./img/foto16.jpeg" class="slide">
+            <img src="./img/foto17.jpeg" class="slide">
+
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+            <button class="btn-surpresa" id="btn-surpresa">
+                <span>💌</span> Clique aqui!
+            </button>
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================================
+     FOOTER
+====================================================== -->
+    <footer>
+        Feito com ❤️ para Joyce
+        <small>10 meses e contando… para sempre ✨</small>
+    </footer>
+
+
+
+    <!-- ======================================================
+     MODAL DA SURPRESA
+====================================================== -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box">
+            <span class="modal-heart">❤️</span>
+            <h2 class="modal-title">Para você, Joyce 💕</h2>
+
+            <p class="modal-text">
+                Joyce, esses 10 meses ao seu lado foram incríveis.<br><br>
+                Você faz minha vida mais feliz todos os dias.<br><br>
+                Obrigado por existir e por compartilhar sua vida comigo.<br><br>
+                <strong style="color:var(--rose-deep)">Eu te amo ❤️</strong>
+            </p>
+
+            <button class="modal-close" id="modal-close">Fechar ✦</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        /* ========================================================
+           INICIALIZA AOS (Animate On Scroll)
+        ======================================================== */
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 80,
+        });
+
+        /* ========================================================
+           PARTÍCULAS (corações flutuando)
+        ======================================================== */
+        (function () {
+            const canvas = document.getElementById('particles-canvas');
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [];
+
+            const SYMBOLS = ['❤', '♡', '✦', '✿', '✾'];
+            const COLORS = ['rgba(212,92,122,', 'rgba(240,160,160,', 'rgba(247,197,197,', 'rgba(232,201,160,'];
+
+            /* ajusta canvas ao viewport */
+            function resize() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            /* cria partícula */
+            function Particle() {
+                this.reset();
+            }
+            Particle.prototype.reset = function () {
+                this.x = Math.random() * W;
+                this.y = H + 20;
+                this.size = Math.random() * 16 + 8;
+                this.speed = Math.random() * 0.5 + 0.2;
+                this.drift = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.5 + 0.15;
+                this.symbol = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+                this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                this.rotate = Math.random() * Math.PI * 2;
+                this.rotateSpeed = (Math.random() - 0.5) * 0.02;
+            };
+            Particle.prototype.update = function () {
+                this.y -= this.speed;
+                this.x += this.drift;
+                this.rotate += this.rotateSpeed;
+                if (this.y < -30) this.reset();
+            };
+            Particle.prototype.draw = function () {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotate);
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color + this.opacity + ')';
+                ctx.font = `${this.size}px serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(this.symbol, 0, 0);
+                ctx.restore();
+            };
+
+            /* spawn inicial */
+            for (let i = 0; i < 55; i++) {
+                const p = new Particle();
+                p.y = Math.random() * H; /* distribuídas na tela no início */
+                particles.push(p);
+            }
+
+            /* loop */
+            function animate() {
+                ctx.clearRect(0, 0, W, H);
+                particles.forEach(p => { p.update(); p.draw(); });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        /* ========================================================
+           CONTADOR DE AMOR
+           ⚠️ Altere a data abaixo para o início do namoro
+        ======================================================== */
+        (function () {
+            // Data de início do relacionamento — formato: AAAA, MM-1, DD
+            // Exemplo: 14 de junho de 2024 → new Date(2024, 5, 14)
+            const startDate = new Date(2025, 5, 25);
+
+            function update() {
+                const now = new Date();
+                const diff = now - startDate;          // ms
+
+                const totalMinutes = Math.floor(diff / 60000);
+                const totalHoras = Math.floor(diff / 3600000);
+                const totalDias = Math.floor(diff / 86400000);
+                const totalMeses = Math.floor(totalDias / 30.44);
+
+                document.getElementById('cnt-meses').textContent = totalMeses;
+                document.getElementById('cnt-dias').textContent = totalDias.toLocaleString('pt-BR');
+                document.getElementById('cnt-horas').textContent = totalHoras.toLocaleString('pt-BR');
+                document.getElementById('cnt-minutos').textContent = totalMinutes.toLocaleString('pt-BR');
+            }
+
+            update();
+            setInterval(update, 60000); // atualiza a cada minuto
+        })();
+
+        /* ========================================================
+           MODAL DA SURPRESA
+        ======================================================== */
+        const modal = document.getElementById('modal');
+        const btnSurpresa = document.getElementById('btn-surpresa');
+        const btnClose = document.getElementById('modal-close');
+
+        btnSurpresa.addEventListener('click', () => {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        btnClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        /* ========================================================
+           NAV: destaca link ativo ao scrollar
+        ======================================================== */
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
+        function onScroll() {
+            const y = window.scrollY + 80;
+            sections.forEach(sec => {
+                if (y >= sec.offsetTop && y < sec.offsetTop + sec.offsetHeight) {
+                    navLinks.forEach(a => {
+                        a.style.color = a.getAttribute('href') === '#' + sec.id
+                            ? 'var(--rose-deep)'
+                            : '';
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        /* ========================================================
+   SLIDESHOW DE FOTOS DA JOYCE
+======================================================== */
+
+        const slides = document.querySelectorAll(".photo-slider img");
+        let slideIndex = 0;
+
+        function nextSlide() {
+
+            slides[slideIndex].classList.remove("active");
+
+            slideIndex++;
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+
+            slides[slideIndex].classList.add("active");
+
+        }
+
+        setInterval(nextSlide, 3500);
+    </script>
+</body>
+
+</html>
