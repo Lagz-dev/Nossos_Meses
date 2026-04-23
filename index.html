@@ -59,7 +59,8 @@
 
         #hero {
             position: relative;
-            min-height: 100vh;
+            max-height: 90vh;
+            min-height: 500px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -68,6 +69,7 @@
             padding: 100px 24px 60px;
             overflow: hidden;
             z-index: 1;
+
 
             /* fallback caso imagem não carregue */
             background: linear-gradient(135deg, #fff0f3, #fde8e8, #ffd6e0, #ffe4ec);
@@ -78,10 +80,15 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: url("./img/Fotinha_nossa.jpeg") center/cover no-repeat;
-            filter: blur(3px) brightness(0.9);
-            transform: scale(1.08);
-            opacity: 0.55;
+
+            background-image: url("./img/Fotinha_nossa.jpeg");
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+
+            opacity: 0.6;
+            filter: blur(2px) brightness(0.9);
+
             z-index: -2;
         }
 
@@ -99,6 +106,17 @@
             position: relative;
             z-index: 1;
         }
+
+        @media (max-width: 700px) {
+
+            #hero::before {
+                background-position: center 10%;
+            }
+
+        }
+
+        /* Ajuste do HERO para celular */
+
 
         /* ========================================================
        CANVAS DE PARTÍCULAS (fundo)
@@ -168,23 +186,6 @@
         /* ========================================================
        HERO SECTION
     ======================================================== */
-        #hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 24px 60px;
-            overflow: hidden;
-            z-index: 1;
-
-            /* gradiente animado */
-            background: linear-gradient(135deg, #fff0f3, #fde8e8, #ffd6e0, #ffe4ec);
-            background-size: 400% 400%;
-            animation: gradientShift 10s ease infinite;
-        }
 
         @keyframes gradientShift {
             0% {
@@ -1016,10 +1017,10 @@
         <span class="hero-badge">✦ Celebrando nosso amor ✦</span>
 
         <h1 class="hero-title">
-            Feliz <span class="accent">10 Meses</span>,<br>Joyce ❤️
+            Feliz <span class="accent"><span class="meses-namoro"></span> Meses</span>,<br>meu Amor!
         </h1>
 
-        <p class="hero-sub">Dez meses de sorrisos, cumplicidade e amor infinito</p>
+        <p class="hero-sub"><span class="meses-namoro"></span> meses dos nossos sorriros, muita amizade <small>e dedada no cu...</small> Te amo!</p>
 
         <div class="scroll-hint">
             <svg viewBox="0 0 24 24" stroke-width="1.5">
@@ -1033,7 +1034,7 @@
        2. NOSSA HISTÓRIA
   ====================================================== -->
     <section id="historia">
-        <span class="section-label">Nosso começo</span>
+        <span class="section-label">O começo</span>
         <h2 class="section-title">Nossa <em>História</em></h2>
         <span class="section-line"></span>
 
@@ -1042,7 +1043,7 @@
                 "Em você encontrei um lar que não precisa de endereço."
             </p>
             <p class="historia-text" data-aos="fade-up" data-aos-delay="100">
-                Dez meses podem parecer pouco para o mundo, mas para mim representam
+                <span class="meses-namoro"></span> meses podem parecer pouco para o mundo, mas para mim representam
                 centenas de manhãs com você, risadas gostosas,
                 abraços que me lembram que tudo vai ficar bem. Cada dia ao seu lado é
                 uma nova descoberta. Do jeito que você ri, do brilho dos seus olhos
@@ -1096,7 +1097,8 @@
             </div>
 
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="160">
-                <img src="./img/Fotinha_nossa.jpeg" alt="Nossa celebração" style="width:100%;height:100%;object-fit:cover;">
+                <img src="./img/Fotinha_nossa.jpeg" alt="Nossa celebração"
+                    style="width:100%;height:100%;object-fit:cover;">
                 <div class="gallery-caption">
                     <p>Nessa tu detonou minha cara...</p>
                 </div>
@@ -1105,14 +1107,6 @@
         </div>
         <p style="font-size: 10px; color:#d45c7a; text-align: center; padding-top: 40px;"> Bem que você poderia tirar
             mais fotos da gente junto...</p>
-
-
-
-
-
-        </div>
-        </div>
-
         </div>
     </section>
 
@@ -1174,7 +1168,7 @@
             <div class="tl-item" data-aos="fade-right">
                 <div class="tl-card">
                     <p class="tl-date">Hoje</p>
-                    <h3 class="tl-title">10 Meses Juntos ❤️</h3>
+                    <h3 class="tl-title"><span class="meses-namoro"></span> Meses Juntos ❤️</h3>
                     <p class="tl-desc">Dez meses de cumplicidade, amor e crescimento. E esse é apenas o começo da nossa
                         história que ainda vai crescer mais</p>
                 </div>
@@ -1195,7 +1189,7 @@
 
         <div class="counter-grid" data-aos="zoom-in">
             <div class="counter-card">
-                <div class="counter-number" id="cnt-meses">10</div>
+                <div class="counter-number" id="cnt-meses"><span class="meses-namoro"></span></div>
                 <div class="counter-label">Meses</div>
             </div>
             <div class="counter-card">
@@ -1256,7 +1250,7 @@
                     vamos viver juntos, cada aventura, cada conquista, cada momento simples
                     que com você se transforma em algo extraordinário.
                 </p>
-                <p>Eu quero muito, um dia, poder ser mais do que apenas seu amigo da escola.</p>
+                <p>Eu quero muito, um dia, poder ser mais do que apenas seu namoradinho da escola.</p>
             </div>
 
             <p class="carta-sign">Com todo o meu amor ❤️</p>
@@ -1309,7 +1303,7 @@
 ====================================================== -->
     <footer>
         Feito com ❤️ para Joyce por Luiz
-        <small>10 meses e contando para sempre! </small>
+        <small><span class="meses-namoro"></span> meses e contando para sempre! </small>
     </footer>
 
 
@@ -1323,7 +1317,7 @@
             <h2 class="modal-title">Para você, Joyce 💕</h2>
 
             <p class="modal-text">
-                Joyce, esses 10 meses ao seu lado foram incríveis.<br><br>
+                Joyce, esses <span class="meses-namoro"></span> meses ao seu lado foram incríveis.<br><br>
                 Você faz minha vida mais feliz todos os dias.<br><br>
                 Obrigado por existir e por compartilhar sua vida comigo.<br><br>
                 <strong style="color:var(--rose-deep)">Eu te amo ❤️</strong>
@@ -1492,6 +1486,32 @@
         }
 
         setInterval(nextSlide, 3500);
+
+        (function () {
+
+            const inicioNamoro = new Date(2025, 5, 25); // 25/06/2025
+
+            function atualizarMeses() {
+
+                const agora = new Date();
+
+                let meses =
+                    (agora.getFullYear() - inicioNamoro.getFullYear()) * 12 +
+                    (agora.getMonth() - inicioNamoro.getMonth());
+
+                if (agora.getDate() < 25) {
+                    meses--;
+                }
+
+                document.querySelectorAll(".meses-namoro").forEach(el => {
+                    el.textContent = meses;
+                });
+
+            }
+
+            atualizarMeses();
+
+        })();
     </script>
 </body>
 
